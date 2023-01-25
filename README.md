@@ -21,5 +21,5 @@ Exemplo: Glossário*
 > Wesley Eloy  
 
 
-![Linkdin](https://github.com/wesloy/Portifolio_S.O.L.I.D/blob/main/lnk.png)  
+![Linkdin](https://github.com/wesloy/Portifolio_GoLang/blob/main/lnk.png)  
 https://www.linkedin.com/in/wesley-eloy/
