@@ -34,7 +34,7 @@ O comando "go mod init" é do Go Lang, já o sufixo "exemplo/hello" é o que se 
 
 ## Links Úteis / Referências
 
-Wesley Willians - Go Lang do Zero - [https://www.youtube.com/watch?v=6SfrO3D4dHM ](https://www.youtube.com/watch?v=_MkQLDMak-4&list=PL5aY_NrL1rjucQqO21QH8KclsLDYu1BIg)
+[Canal Youtube - Wesley Willians - Go Lang do Zero](https://www.youtube.com/watch?v=_MkQLDMak-4&list=PL5aY_NrL1rjucQqO21QH8KclsLDYu1BIg)
 
 ## Glossário
 
@@ -50,4 +50,5 @@ Wesley Willians - Go Lang do Zero - [https://www.youtube.com/watch?v=6SfrO3D4dHM
 > Wesley Eloy
 
 ![Linkdin](https://github.com/wesloy/Portifolio_GoLang/blob/main/imgs/lnk.png)  
-https://www.linkedin.com/in/wesley-eloy/
+[Confira meu Linkdin](https://www.linkedin.com/in/wesley-eloy/)
+
