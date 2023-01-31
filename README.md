@@ -21,6 +21,20 @@ Linguagem limpa, baixa curva de apredizagem, madura e simples. A Go já foi cria
 https://go.dev/ sendo este o site oficial, pode-se baixar o instalador para qualquer das 3 plataformas comuns de sistemas operacionais: Linux, Mac ou Windows.
 
 
+### Hello World ###
+
+O "go.mod" é um arquivo gerado com o comando destacado abaixo e este arquivo gerencia todas as dependências importadas para o projeto, bem como as dependências que poderão ser criadas no projeto em que você estiver "codando".  
+Atualmente o "go.mod" também contem a localização/caminho do repositório do código fonte que está sendo desenvolvido, podendo ser a raiz do servidor onde será feito o deploy ou um repositório do github, que aliás é o que mais se é feito, principalmente se a intenção é publicar para que outros possam usufruir da aplicação criada.  
+
+Após criar a pasta onde o projeto será desenvolvido e acessar a mesma através do seu prompt de comando, digite a seguinte instrução: 
+
+```MS-DOS
+go mod init exemplo/hello
+```  
+
+O comando "go mod init" é do Go Lang, já o sufixo "exemplo/hello" é o que se foi explicado acima, ou seja, o endereço principal que sua aplicação adotará, que muitas vezes é o nome do repositório git.
+
+
 ## Links Úteis / Referências ##
 
 Wesley Willians - Go Lang do Zero - [https://www.youtube.com/watch?v=6SfrO3D4dHM ](https://www.youtube.com/watch?v=_MkQLDMak-4&list=PL5aY_NrL1rjucQqO21QH8KclsLDYu1BIg) 
