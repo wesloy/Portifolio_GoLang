@@ -27,10 +27,37 @@ Atualmente o "go.mod" também contem a localização/caminho do repositório do 
 Após criar a pasta onde o projeto será desenvolvido e acessar a mesma através do seu prompt de comando, digite a seguinte instrução:
 
 ```DOS
-go mod init exemplo/hello
+go mod init example/hello
 ```
 
-O comando "go mod init" é do Go Lang, já o sufixo "exemplo/hello" é o que se foi explicado acima, ou seja, o endereço principal que sua aplicação adotará, que muitas vezes é o nome do repositório git.
+O comando "go mod init" é do Go Lang, já o sufixo "example/hello" é o que se foi explicado acima, ou seja, o endereço principal que sua aplicação adotará, que muitas vezes é o nome do repositório git.  
+
+![go mod init](imgs/go_mod_init.png)
+
+Após a criação e inicialização do projeto, precisamos *codar* o esperado ___Hello World___.  
+Para isso, precisamos criar um arquivo com extensão *.go e inserir as instruções necessárias para exibir a mensagem.  
+
+![sintaxe hello world](imgs/hello_world_sintaxe.png)  
+
+A sintaxe da imagem é esta:  
+
+```go
+package main 
+
+import "fmt" 
+
+func main() { 
+	fmt.Println("Hello, World!") 
+}
+```
+
+Até mesmo com a imagem mostra, nos comentários dentro do código, temos aqui alguns elementos importantes para a ***Dev Go***. São eles:  
+
+- ***package main***: ou pacote principal/essencial. Todo "package" é um aglotinador de métodos, arquivos e funções. Neste caso, em específico, o pacote principal do projeto.  
+- ***import fmt***: trata-se de uma das várias bibliotecas que o GO fornece em sua instalação como padrão. O fmt é uma biblioteca que fornece formatações, até mesmo a possibilidade de imprimir em tela um texto.  
+- ***func main***: a função principal, como em outras linguagens, por exemplo, C# ou Java, é necessária para iniciar a execução do programa, sem ela não é possível se rodar a aplicação.  
+  
+
 
 ## Links Úteis / Referências
 
@@ -47,8 +74,12 @@ O comando "go mod init" é do Go Lang, já o sufixo "exemplo/hello" é o que se 
 
 ## Autor
 
-> Wesley Eloy
+> **Wesley Eloy**  
+> Bacharel em Administração  
+> Pós graduado em Tecnologias de aplicações Web  
+> Atuando como Desenvolvedor  
+> [Linkdin (wesley-eloy)](https://www.linkedin.com/in/wesley-eloy/)
 
-![Linkdin](https://github.com/wesloy/Portifolio_GoLang/blob/main/imgs/lnk.png)  
-[Confira meu Linkdin](https://www.linkedin.com/in/wesley-eloy/)
+
+
 
