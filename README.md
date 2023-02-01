@@ -17,7 +17,8 @@ Linguagem limpa, baixa curva de apredizagem, madura e simples. A Go já foi cria
 
 ### Instalação
 
-https://go.dev/ sendo este o site oficial, pode-se baixar o instalador para qualquer das 3 plataformas comuns de sistemas operacionais: Linux, Mac ou Windows.
+https://go.dev/ sendo este o site oficial, pode-se baixar o instalador para qualquer das 3 plataformas comuns de sistemas operacionais: Linux, Mac ou Windows.  
+A instalação segue aquele "burocrático" procedimento: Next, next e finish. Easy-peasy!
 
 ### Hello World
 
@@ -61,7 +62,9 @@ Até mesmo como a imagem mostra, nos comentários inseridos no código, temos al
 
 ## Links Úteis / Referências
 
-[Canal Youtube - Wesley Willians - Go Lang do Zero](https://www.youtube.com/watch?v=_MkQLDMak-4&list=PL5aY_NrL1rjucQqO21QH8KclsLDYu1BIg)
+- [Documentação oficial Go Lang](https://go.dev/)  
+- [Canal Youtube - Wesley Willians - Go Lang do Zero](https://www.youtube.com/watch?v=_MkQLDMak-4&list=PL5aY_NrL1rjucQqO21QH8KclsLDYu1BIg)  
+
 
 ## Glossário
 
