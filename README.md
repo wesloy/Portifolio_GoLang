@@ -57,8 +57,21 @@ Até mesmo como a imagem mostra, nos comentários inseridos no código, temos al
 - ***package main***: ou pacote principal/essencial. Todo "package" é um aglotinador de métodos, arquivos e funções. Neste caso, em específico, o pacote principal do projeto.  
 - ***import fmt***: trata-se de uma das várias bibliotecas que o GO fornece em sua instalação de forma padrão. O _fmt_ é uma biblioteca que fornece formatações, até mesmo a possibilidade de imprimir em tela um texto, método que usamos em nosso exemplo.  
 - ***func main***: a função principal/fundamental, como em outras linguagens (C# ou Java) é necessária para iniciar a execução do programa, sem ela não é possível se rodar a aplicação.  
-  
 
+Agora é fazer a mágica acontecer!  
+Vamos executar nosso projeto e dar um "Olá mundo!".  
+Para isso, vamos abrir o terminal e usar o seguinte comando:  
+
+```go
+go run .
+```
+ Deixando o próprio Go encontrar o arquivo que contem a estrutura principal (Main).  
+ Pode-se especificar o arquivo a ser executado, com o comando abaixo:  
+ ```go
+go run hello.go
+```
+
+![run go](imgs/run_go.png)
 
 ## Links Úteis / Referências
 
