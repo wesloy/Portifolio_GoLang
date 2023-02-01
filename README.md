@@ -51,11 +51,11 @@ func main() {
 }
 ```
 
-Até mesmo com a imagem mostra, nos comentários dentro do código, temos aqui alguns elementos importantes para a ***Dev Go***. São eles:  
+Até mesmo como a imagem mostra, nos comentários inseridos no código, temos alguns elementos importantíssimos para um _Dev Go_. São eles:  
 
 - ***package main***: ou pacote principal/essencial. Todo "package" é um aglotinador de métodos, arquivos e funções. Neste caso, em específico, o pacote principal do projeto.  
-- ***import fmt***: trata-se de uma das várias bibliotecas que o GO fornece em sua instalação como padrão. O fmt é uma biblioteca que fornece formatações, até mesmo a possibilidade de imprimir em tela um texto.  
-- ***func main***: a função principal, como em outras linguagens, por exemplo, C# ou Java, é necessária para iniciar a execução do programa, sem ela não é possível se rodar a aplicação.  
+- ***import fmt***: trata-se de uma das várias bibliotecas que o GO fornece em sua instalação de forma padrão. O _fmt_ é uma biblioteca que fornece formatações, até mesmo a possibilidade de imprimir em tela um texto, método que usamos em nosso exemplo.  
+- ***func main***: a função principal/fundamental, como em outras linguagens (C# ou Java) é necessária para iniciar a execução do programa, sem ela não é possível se rodar a aplicação.  
   
 
 
