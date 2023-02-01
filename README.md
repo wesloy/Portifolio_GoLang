@@ -45,7 +45,7 @@ A sintaxe da imagem é esta:
 ```go
 package main 
 
-import "fmt" 
+import "fmt" /* Corrigindo o print isto é uma biblioteca e não uma função */
 
 func main() { 
 	fmt.Println("Hello, World!") 
