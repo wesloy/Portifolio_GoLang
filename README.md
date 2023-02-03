@@ -4,7 +4,7 @@
 
 ## Sobre o projeto
 
-Este projeto tem por base desvendar e aplicar conceitos da linguagem _GoLang_.  
+Este projeto tem por base desvendar e aplicar conceitos da linguagem _Go Lang_.  
 Irei conceituar características do _Go_ e aplicar durante a construção de uma API de controles de leitura de documentos.
 
 **Observação**: toda palavra seguida de asterisco, possui uma breve descrição na penúltima sessão deste _Redme_, sessão _Glossário_, com o objetivo de elucidar quaisquer dúvidas sobre a utilização do termo no contexto deste artigo.  
@@ -45,7 +45,7 @@ A sintaxe da imagem é esta:
 ```go
 package main 
 
-import "fmt" 
+import "fmt" /* Corrigindo o print isto é uma biblioteca e não uma função */
 
 func main() { 
 	fmt.Println("Hello, World!") 
