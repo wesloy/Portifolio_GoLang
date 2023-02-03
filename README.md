@@ -45,7 +45,7 @@ A sintaxe da imagem é esta:
 ```go
 package main 
 
-import "fmt" /* Corrigindo o print isto é uma biblioteca e não uma função */
+import "fmt" /* Importado de uma biblioteca GO */
 
 func main() { 
 	fmt.Println("Hello, World!") 
@@ -78,6 +78,22 @@ go run hello.go
 
 Até aqui vimos o *Hello World*, sendo executado dentro do arquivo principal e dentro da função principal, denominada *Main*. Mas não seria razoável pensar em "codar" todo um sistema/projeto em um único arquivo, então se faz necessário entender como podemos chamar códigos de um *package* diferente, que esteja dentro de um arquivo externo ao *Main* (Principal).  
 
+**Imagem 01**
+
+![func in modules p1](imgs/hello_world_func.png)
+
+Na **Imagem 01** foi dado destaque a estrutura de uma função em arquivos distintos, os passos para codar o que está nesta imagem são:  
+
+- Primeiramente o "go mod init", que já citamos acima, deve iniciar com um endereço Git ou de pastas que você está codando. Depois montamos o arquivo principal, como no "Hello World" exemplificado no tópico anterior, que nesta **Imagem 01** foi nomeado como "main.go".
+- Agora nos resta criar um arquivo à parte com a função que se pretende rodar, porém é preciso detida atenção neste momento, para entender o jeto Go de estruturar arquivos externos.
+  
+**Imagem 02**
+
+![func in modules p2](imgs/hello_world_func2.png)  
+
+- Na **Imagem 02** podemos observar que o "_package_" é formado quando criamos uma subpasta e dentro dela criamos o arquivo com extensão *.go.  Para exemplificação criamos o arquivo "hello.go" e "bye.go" eles possuem como "cabeçalho" o "package mensages" o que não é uma coincidência, mas sim o jeto Go de marcar sua estrutura de relacionamento de arquivos, veja na imagem abaixo.  
+
+![func in modules p3](imgs/hello_world_func3.png)  
 
 ## Links Úteis / Referências
 
