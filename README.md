@@ -113,9 +113,30 @@ Na **Imagem 01** foi dado destaque a estrutura de uma função em arquivos disti
 Agora é só daixar acontecer! Vá ou seu prompt de comando, navegue até a pasta do projeto e execute o *go run .* ou *go run main.go* e seja feliz!
 
 
-![func in modules p3](imgs/hello_world_func4.png)  
+![func in modules p4](imgs/hello_world_func4.png)  
 
 
+### Funções Privadas e Públicas nos _Packages Go_  
+
+A diferenciação para que uma função possa ser acessada quando for importado o *package* a qual ela está aninhada é se a **primeira letra da declaração da função é MAIÚSCULA**.  
+Ou seja, no exemplo abaixo a função *info*, não está acessível externamente.  
+Podemos afirmar que o Go é uma linguagem *Case Sensitive*, dessa forma vamos redobrar a atenção nas declarações de funções, pacotes e até variáveis. 
+
+```go
+package mensages
+
+import "fmt"
+
+func Hello() {
+	fmt.Println("Hello World!")
+}
+func info() {
+	fmt.Println("I'm Go Lang, nice to meet you! What's good?")
+}
+```  
+Resultando no erro que a imagem abaixo mostra.  
+
+![func in modules p5](imgs/hello_world_func5.png) 
 ## Links Úteis / Referências
 
 - [Documentação oficial Go Lang](https://go.dev/)  
