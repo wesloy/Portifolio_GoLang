@@ -43,13 +43,13 @@ Para isso, precisamos criar um arquivo com extensão *.go e inserir as instruç�
 A sintaxe da imagem é esta:  
 
 ```go
-package main 
+	package main 
 
-import "fmt" /* Importado de uma biblioteca GO */
+	import "fmt" /* Importado de uma biblioteca GO */
 
-func main() { 
-	fmt.Println("Hello, World!") 
-}
+	func main() { 
+		fmt.Println("Hello, World!") 
+	}
 ```
 
 Até mesmo como a imagem mostra, nos comentários inseridos no código, temos alguns elementos importantíssimos para um _Dev Go_. São eles:  
@@ -63,12 +63,12 @@ Vamos executar nosso projeto e dar um "Olá mundo!".
 Para isso, vamos abrir o terminal e usar o seguinte comando:  
 
 ```go
-go run .
+	go run .
 ```
  Deixando o próprio Go encontrar o arquivo que contem a estrutura principal (Main).  
  Pode-se especificar o arquivo a ser executado, com o comando abaixo:  
  ```go
-go run hello.go
+	go run hello.go
 ```
 
 ![run go](imgs/run_go.png)  
@@ -91,9 +91,30 @@ Na **Imagem 01** foi dado destaque a estrutura de uma função em arquivos disti
 
 ![func in modules p2](imgs/hello_world_func2.png)  
 
-- Na **Imagem 02** podemos observar que o "_package_" é formado quando criamos uma subpasta e dentro dela criamos o arquivo com extensão *.go.  Para exemplificação criamos o arquivo "hello.go" e "bye.go" eles possuem como "cabeçalho" o "package mensages" o que não é uma coincidência, mas sim o jeto Go de marcar sua estrutura de relacionamento de arquivos, veja na imagem abaixo.  
+- Na **Imagem 02** podemos observar que o "_package_" é formado quando criamos uma subpasta e dentro dela criamos o arquivo com extensão *.go.  Para exemplificação criamos o arquivo "hello.go" e "bye.go" eles possuem como "cabeçalho" o "package mensages" o que não é uma coincidência com o nome da subpasta, mas sim o jeto Go de marcar sua estrutura de relacionamento de arquivos, veja na imagem abaixo.  
 
 ![func in modules p3](imgs/hello_world_func3.png)  
+
+- Agora para chamar esse pacote que criamos, vá até o arquivo _Main_ e inclua nas importações o endereço completo. Lembrando que o endereço completo inclui o endereço que foi informado durante o comando *"git mod init*" durante a criação do projeto (destacado na **Imagem 01**).  
+
+```go
+	import "Go-Principios/Portifolio_GoLang/02_hello_function/mensages"
+```  
+
+- Ainda no arquivo *main.go*, dentro na *func main*, cite o nome do *package*, em nosso exemplo, *mensagens*, e depois a função que deseja executar que esteja aninhado a este pacote.
+
+```go
+	func main() {		
+		mensages.Hello()
+		mensages.Bye()
+	}
+```
+
+Agora é só daixar acontecer! Vá ou seu prompt de comando, navegue até a pasta do projeto e execute o *go run .* ou *go run main.go* e seja feliz!
+
+
+![func in modules p3](imgs/hello_world_func4.png)  
+
 
 ## Links Úteis / Referências
 
