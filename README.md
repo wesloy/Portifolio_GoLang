@@ -71,7 +71,13 @@ go run .
 go run hello.go
 ```
 
-![run go](imgs/run_go.png)
+![run go](imgs/run_go.png)  
+
+### Chamar códigos de um arquivo externo/diferente  
+
+
+Até aqui vimos o *Hello World*, sendo executado dentro do arquivo principal e dentro da função principal, denominada *Main*. Mas não seria razoável pensar em "codar" todo um sistema/projeto em um único arquivo, então se faz necessário entender como podemos chamar códigos de um *package* diferente, que esteja dentro de um arquivo externo ao *Main* (Principal).  
+
 
 ## Links Úteis / Referências
 
