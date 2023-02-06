@@ -91,7 +91,7 @@ Na **Imagem 01** foi dado destaque a estrutura de uma função em arquivos disti
 
 ![func in modules p2](imgs/hello_world_func2.png)  
 
-- Na **Imagem 02** podemos observar que o "_package_" é formado quando criamos uma subpasta e dentro dela criamos o arquivo com extensão *.go.  Para exemplificação criamos o arquivo "hello.go" e "bye.go" eles possuem como "cabeçalho" o "package mensages" o que não é uma coincidência com o nome da subpasta, mas sim o jeto Go de marcar sua estrutura de relacionamento de arquivos, veja na imagem abaixo.  
+- Na **Imagem 02** podemos observar que o "_package_" é formado quando criamos uma subpasta e dentro dela criamos o arquivo com extensão *.go.  Para exemplificação criamos o arquivo "hello.go" e "bye.go" eles possuem como "cabeçalho" o "package mensages" o que não é uma coincidência com o nome da subpasta, mas sim o jeto Go de marcar sua estrutura de relacionamento de arquivos, **veja na imagem abaixo**. Neste ponto, chamo a atenção ao seguinte fato: as duas funções poderiam estar dentro de um mesmo arquivo. Separei em arquivos distintos para mostrar que para o Go o que importa é a estrutura de pasta e a marcação _package_ de nome similar, neste exemplo, denominado _mensages_. Assim sendo, podemos concluir que a quantidade de arquivos abaixo da subpasta/package fica a critério de organização do desenvolvedor e não de uma exigência da linguagem.
 
 ![func in modules p3](imgs/hello_world_func3.png)  
 
@@ -123,20 +123,143 @@ Ou seja, no exemplo abaixo a função *info*, não está acessível externamente
 Podemos afirmar que o Go é uma linguagem *Case Sensitive*, dessa forma vamos redobrar a atenção nas declarações de funções, pacotes e até variáveis. 
 
 ```go
-package mensages
+	package mensages
 
-import "fmt"
+	import "fmt"
 
-func Hello() {
-	fmt.Println("Hello World!")
-}
-func info() {
-	fmt.Println("I'm Go Lang, nice to meet you! What's good?")
-}
+	func Hello() {
+		fmt.Println("Hello World!")
+	}
+	func info() {
+		fmt.Println("I'm Go Lang, nice to meet you! What's good?")
+	}
 ```  
 Resultando no erro que a imagem abaixo mostra.  
 
-![func in modules p5](imgs/hello_world_func5.png) 
+![func in modules p5](imgs/hello_world_func5.png)  
+
+### Variáveis  
+
+Vamos inverter um pouco, olhemos o código primeiro.  
+```go
+	func main() 
+	{
+		/* Declarando e atribuindo variáveis */
+		var a string = "Declaração longa"
+		b := "Declaração curta"
+
+		fmt.Printf("%v \n", a) /* %v imprime o valor e \n pula uma linha */
+		fmt.Printf("%T \n", a) /* %T imprime o Tipo da variável */
+
+		fmt.Printf("%v \n", b)
+		fmt.Printf("%T \n", b)
+	}
+``` 
+Saída: 
+
+```console
+PS C:\Estudos\GoLang\Go-Principios\Portifolio_GoLang\03_variaveis> go run variaveis.go
+Declaração longa 
+string 
+Declaração curta 
+string 
+```
+De forma direta, vimos no código acima as formas mais comuns de declarar e atribuir uma variável em Go Lang. Temos opção de fazer de forma longa ou curta, em outras palavras de forma implícita e explícita.  
+Na forma implícita o segredo está no _":="_ onde esta forma de declarar deve ser apenas na primeira vez, onde se cria a variável. Depois que a variável é atribuída a primeira vez, não é possível alterar seu tipo, já que implicitamente o Go "tipa" a variável.  
+Já na forma longa, o programdor é obrigado a determinar explicitamente o tipo da variável e assim como na declaração curta, não é possível alterar o tipo após sua declaração.  
+Não é possível alterar o tipo, após declarar na forma explícita ou atribuir na forma implícita, visto que o Go é uma linguagem fortemente tipada.  
+
+### Constantes  
+
+De forma similar às variáveis as constantes possuem duas formas de declaração e atribuição, veja abaixo:  
+
+```go
+	func main() {
+
+		/* Declarando e atribuindo variáveis */
+		const a string = "Declaração longa"
+		const b = "Declaração curta"
+
+		fmt.Printf("%v \n", a) /* %v imprime o valor e \n pula uma linha */
+		fmt.Printf("%T \n", a) /* %T imprime o Tipo da variável */
+
+		fmt.Printf("%v \n", b)
+		fmt.Printf("%T \n", b)
+
+	}
+```  
+
+Saída:  
+
+```console
+PS C:\Estudos\GoLang\Go-Principios\Portifolio_GoLang\04_constantes> go run constantes.go
+Declaração longa 
+string 
+Declaração curta 
+string 
+```
+
+E assim como em outras linguagens, após a declaração e atribuição de uma _constante_ não é possuível alterar o seu valor, apenas consultá-lo.  
+
+### Escopo Local x Escopo Global  
+
+Tanto as variáveis quanto as constantes podem ter sua declaração em escopo* local ou global, modificando o acesso e consumo da variável/constante. Veja o exmplo: 
+
+```go
+	package main
+
+	import "fmt"
+
+	var num1 = 0
+
+	const name = "Números"
+
+	func numerosPrimos() {
+		const name = "Números Primos"
+		num1 := 3
+		num2 := 7
+
+		fmt.Println(name)
+		fmt.Println(num1)
+		fmt.Println(num2)
+	}
+
+	func main() {
+		numerosPrimos()
+		fmt.Println(name)
+		fmt.Println(num1)
+
+	}
+``` 
+Saída:  
+
+```console
+PS C:\Estudos\GoLang\Go-Principios\Portifolio_GoLang\05_global_local> go run escopo.go
+Números Primos
+3
+7
+Números
+0
+```
+
+Veja que a variável *num1* foi declarada e atribuída 2x no código acima, porém na primeira vez foi de forma global, na raiz do _package_, já na segunda vez foi dentro da função _numerosPrimos_ o que torna ela uma variável local e não gera conflito com a versão *num1* que é global.  
+Os valores impressos, nos comprova o que descrevemos acima, pois quando imprimimos a função _numerosPrimos_ a vairável *num1* tem valor 3. Porém quando imprimimos apenas a variável *num1* ela tem valor 0, que é o que atribuímos a versão global da variável *num1*.  
+O mesmo comportamento é notado nas constantes local e global de mesmo nome: _const name_.  
+
+
+### Acessibilidade  
+
+
+Lembra do comportamento _Case Sensitive_ que expliquei acima?, quando falei de funções?  
+Onde a primeira letra de uma função determina a acessibilidade da mesma, ou seja, se fora do _package_ onde a função foi codada, ela poderá ser invocada. Lembando:  
+- primeira letra maíscula, determina que a função é pública e que poderá ser chamada externamente.
+- primeira letra minúscula que a fução é privada e não é acessível externamente.  
+
+O mesmo se dá com as variáveis/constantes se elas  iniciarem com letra maíscula elas poderão ser acessadas de fora do próprio _package_, quando o mesmo, for importado em outro escopo do projeto.  
+
+Observação:  
+Existe a questão de onde a variável/constante foi declarada, se foi **global** ou **local** sua declaração. O que isso quer dizer? Quer dizer que mesmo que uma variável seja declarada com a primeira letra maíscula e ela esteja dentro de uma função, ou seja, escopo local, não vai ser possível acessá-la externamente e é bem provável que sua sua IDE* de codificação lhe emita um alerta sobre este erro de acessibilidade.
+
 ## Links Úteis / Referências
 
 - [Documentação oficial Go Lang](https://go.dev/)  
@@ -145,8 +268,9 @@ Resultando no erro que a imagem abaixo mostra.
 
 ## Glossário
 
-- **Glossário** - dicionário de palavras de sentido obscuro ou pouco conhecido; elucidário.
+- **Escopo** - limite, contexto, espaço determinado ou até meta.
 - **Estaticamente Tipada** - quando a pessoa que está programando precisa informar explicitamente o tipo de cada dado utilizado no sistema.
+- **Glossário** - dicionário de palavras de sentido obscuro ou pouco conhecido; elucidário.  
 - **Multiplataforma** - mais de 1 sistema operacional pode rodar a aplicação. Exemplo: Linux, Mac ou Windows.
 - **Multicore** - contém pelo menos 2 núcleos de processamento.
 - **Open Source** - código aberto, onde os usuários podem contribuir para a sua evolução e utilzar para qualquer fim.
