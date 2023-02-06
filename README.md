@@ -270,6 +270,7 @@ Existe a questão de onde a variável/constante foi declarada, se foi **global**
 
 - **Escopo** - limite, contexto, espaço determinado ou até meta.
 - **Estaticamente Tipada** - quando a pessoa que está programando precisa informar explicitamente o tipo de cada dado utilizado no sistema.
+- **IDE** - O ambiente de desenvolvimento integrado (IDE do inglês Integrated Development Environment), é uma ferramenta de desenvolvimento para editar o código, acessar um terminal, executar um script , debugar e compilar usando um único ambiente.
 - **Glossário** - dicionário de palavras de sentido obscuro ou pouco conhecido; elucidário.  
 - **Multiplataforma** - mais de 1 sistema operacional pode rodar a aplicação. Exemplo: Linux, Mac ou Windows.
 - **Multicore** - contém pelo menos 2 núcleos de processamento.
