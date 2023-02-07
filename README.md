@@ -258,7 +258,29 @@ Onde a primeira letra de uma função determina a acessibilidade da mesma, ou se
 O mesmo se dá com as variáveis/constantes se elas  iniciarem com letra maíscula elas poderão ser acessadas de fora do próprio _package_, quando o mesmo, for importado em outro escopo do projeto.  
 
 Observação:  
-Existe a questão de onde a variável/constante foi declarada, se foi **global** ou **local** sua declaração. O que isso quer dizer? Quer dizer que mesmo que uma variável seja declarada com a primeira letra maíscula e ela esteja dentro de uma função, ou seja, escopo local, não vai ser possível acessá-la externamente e é bem provável que sua sua IDE* de codificação lhe emita um alerta sobre este erro de acessibilidade.
+Existe a questão de onde a variável/constante foi declarada, se foi **global** ou **local** sua declaração. O que isso quer dizer? Quer dizer que mesmo que uma variável seja declarada com a primeira letra maíscula e ela esteja dentro de uma função, ou seja, escopo local, não vai ser possível acessá-la externamente e é bem provável que sua sua IDE* de codificação lhe emita um alerta sobre este erro de acessibilidade.  
+
+### Documentação
+
+Em funções exportadas, ou seja, que estão com visibilidade pública, podendo ser acessadas em outros móudlos do projeto, se faz interessante incluir anotações que documentam o que o método faz ou precisa para gerar um determinado dado, consulta, cálculo ou informação. O Go tem uma forma leve de se fazer isso, basta incluir anotações antes da declaração da função, como no exemplo a seguir.  
+
+```go
+	package mensages
+
+	import "fmt"
+
+	// Parâmetros: Sem parâmetros
+	// Retorno: "Hello World!"
+	// Utilização: abertura do sistema
+	func Hello() {
+		fmt.Println("Hello World!")
+	}
+
+	func info() {
+		fmt.Println("I'm Go Lang, nice to meet you! What's good?")
+	}
+```  
+No código exemplificado acima, inseri a documentação na função que será exportada e na função interna ao _package_ eu não inseri, fiz isso para mostrar como é pragmático o Go. Quando formos trabalhar com o _Go Doc_ ele irá ler esse "comentário" e documentar para gente.
 
 ## Links Úteis / Referências
 
