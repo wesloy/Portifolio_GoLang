@@ -282,6 +282,116 @@ Em funções exportadas, ou seja, que estão com visibilidade pública, podendo 
 ```  
 No código exemplificado acima, inseri a documentação na função que será exportada e na função interna ao _package_ eu não inseri, fiz isso para mostrar como é pragmático o Go. Quando formos trabalhar com o _Go Doc_ ele irá ler esse "comentário" e documentar para gente.
 
+
+### Tratativas de Erros (Try/Catch)  
+
+O Go Lang não tem usabilidade de Try/Catch, olhando positivamente para esse fato, não existe possibilidade de fazer aquelas diversas linhas de programação, "socadas" dentro de um Try e se algo der errado o "Catch" está lá para logar, trazendo erros cada vez mais genéricos e não tratáveis.  
+
+Mas o que é que se faz com os erros? Como e onde tratar?  
+
+O Go dá atenção indivisa aos erros, tanto que o **retorno mínimo** de toda e qualquer função/método é:
+* Resultado da função/método
+* Erro
+
+Sim em toda a função é retornado o erro, mesmo que não ocorra o erro, sendo então que a varíavel será carregada com valor nulo. Cabe aqui uma observação em Go o valor nulo é nomeado como **nil**, ou seja, é usando essa expresão que se faz os testes condicionais.
+
+No exemplo abaixo, forçamos o erro e logamos o que desejamos sobre o fato ocorrido, por isso, a importação da biblioteca "Errors", para podermos determinar ou verbalizar o motivo do erro em nosso mine projeto.  
+
+```go
+	package main
+
+	import (
+		"errors"
+		"fmt"
+		"log"
+	)
+
+	func main() {
+		res, err := sum(100, 2)
+		if err != nil {
+			log.Fatal(err.Error()) // gerando log em tela
+		}
+		fmt.Println(res)
+	}
+
+	func sum(x int, y int) (int, error) {
+
+		res := x + y
+
+		if res > 10 {
+			return 0, errors.New("Total é maior que 10")
+		}
+
+		return res, nil
+	}
+``` 
+
+Saída:  
+```console
+	PS C:\Estudos\GoLang\Go-Principios\Portifolio_GoLang\06_erros> go run main.go
+	2023/02/15 15:44:32 Total é maior que 10
+```
+
+No exemplo seguinte, fica mais claro o retorno de erro em funções Go, pois não se tem declarada no _import_ a biblioteca _errors_, que como dito acima, nos serve para que o programador da função gere informações de erros a outros que consumirão o método.  
+Nete exmeplo, onde consumimos a biblioteca _net/http_, nota-se a necessidade de declarar duas variáveis para se conseguir consumir a função _Get_ da biblioteca, são elas: result e error. Isso se faz necessário, já que o método tem como padrão o duplo retorno.  
+
+```go
+	package main
+
+	import (
+		"fmt"
+		"log"
+		"net/http"
+	)
+
+	func main() {
+
+		res, err := http.Get("http://jw.org")
+		if err != nil {
+			log.Fatal(err.Error())
+		}
+		fmt.Println(res.Header)
+	}
+```
+
+Saída:  
+
+```console
+	PS C:\Estudos\GoLang\Go-Principios\Portifolio_GoLang\06_erros\exemplo_2> go run .
+	map[Cache-Control:[must-revalidate, max-age=1800, s-maxage=3600] Content-Type:[text/html; charset=utf-8] Date:[Wed, 15 Feb 2023 19:41:44 GMT] Expires:[Wed, 15 Feb 2023 20:11:44 GMT] Last-Modified:[Tue, 14 Feb 2023 18:57:37 GMT] Set-Cookie:[akacd_rel=1676493704~rv=14~id=53c34fce5899c4a4cccce925b767df3f; path=/; Expires=Wed, 15 Feb 2023 20:41:44 GMT; Secure; SameSite=None] Strict-Transport-Security:[max-age=31536000] Vary:[Accept-Encoding] X-Built-On:[894] X-Frame-Options:[SAMEORIGIN] X-Page-Built:[Tue, 14 Feb 2023 18:57:37 +0000]]
+```
+
+Este foi o caminho feliz, mas se fosse um site inexistente a saída seria assim:  
+
+```console
+	PS C:\Estudos\GoLang\Go-Principios\Portifolio_GoLang\06_erros\exemplo_2> go run .
+	2023/02/15 17:15:27 Get "http://12a21df.org": dial tcp: lookup 12a21df.org: no such host
+	exit status 1
+```
+Outro fator que é preciso dar atenção é que o Go aceita um _by pass_, um descarte, de qualquer valor retornado, incluíndo os erros.  
+Veja no código a seguir o descarte acontecendo e lembre-se que também é possível fazer isso com o erro, que geralmente é a segunda variável de retorno.  
+```go
+	package main
+
+	import (
+		"fmt"
+	)
+
+	func f() (string, string) {
+		return "João 3:16", "Salmo 83:18"
+	}
+
+	func main() {
+		_, v := f() // descartando a primeira variável de retorno
+		fmt.Println(v)
+
+		v, _ = f() // descartando a segunda variável de retorno
+		fmt.Println(v)
+	}
+```  
+O uso do underscore (_) é chamado no Go como _blank identifier_.
+
+Então, concluí-se nessa seção que é bem explícito o uso dos erros e acontece de função a função, este é o jeito Go de ser, não se usa o _Try/Catch_ mas dá-se uma atenção especial aos erros.
 ## Links Úteis / Referências
 
 - [Documentação oficial Go Lang](https://go.dev/)  
